@@ -1,0 +1,39 @@
+﻿@model TenantWebClient.ViewModels.ULogin
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <br /><br /><br />
+        <h1>Login</h1>
+        <h3 class="text-danger">@ViewBag.msg</h3>
+        
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="uname" class="control-label">Username:</label>
+                <input asp-for="uname" placeholder="Your Name" class="form-control" />
+                <span asp-validation-for="uname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pass" class="control-label">Password:</label>
+                <input asp-for="pass" placeholder="Your Contact No" type="password" class="form-control" />
+                <span asp-validation-for="pass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+            <img src="~/images/img1.jpg" />
+    </div>
+</div>
+<p> New User?
+    <a asp-controller="Finder" asp-action="Add">Register</a>
+</p>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

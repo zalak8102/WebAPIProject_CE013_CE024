@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TenantFinderAPI.Models.House>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "./_LayoutHome.cshtml";
+}
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                House No
+            </th>
+            <th>
+                Soc/Flat Name
+            </th>
+            <th>
+                Area
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Rent
+            </th>
+            <th>
+                Req. Tenant
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reqtenant)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.hid }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.hid })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
