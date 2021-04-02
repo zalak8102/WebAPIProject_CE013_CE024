@@ -1,0 +1,50 @@
+﻿@model TenantFinderAPI.Models.Tenant
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "./_LayoutFinder.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Tenant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="tid" type="hidden" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="tname" class="control-label">Name:</label>
+                <input asp-for="tname" class="form-control" />
+                <span asp-validation-for="tname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phone" class="control-label">Contact No:</label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="catg" class="control-label">Your Category:</label>
+                <input asp-for="catg" class="form-control" />
+                <span asp-validation-for="catg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="reqhouse" class="control-label">Req. House:</label>
+                <input asp-for="reqhouse" class="form-control" />
+                <span asp-validation-for="reqhouse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

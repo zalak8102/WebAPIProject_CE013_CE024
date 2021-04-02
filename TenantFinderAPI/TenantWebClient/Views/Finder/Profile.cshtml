@@ -1,0 +1,23 @@
+﻿@model TenantFinderAPI.Models.Tenant
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "./_LayoutFinder.cshtml";
+}
+<div class="col d-flex justify-content-center">
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+           <h1>Your Profile</h1>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Name : @Model.tname</h5>
+            <br />
+            <p class="card-text">Contact No : @Model.phone</p>
+            <p class="card-text">Your Category : @Model.catg</p>
+            <p class="card-text">House Requirement : @Model.reqhouse</p>
+
+            <button class="btn btn-warning text-decoration-none">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.tid })
+            </button>
+        </div>
+    </div>
+</div>

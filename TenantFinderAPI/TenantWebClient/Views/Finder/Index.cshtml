@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TenantFinderAPI.Models.Tenant>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "../Home/_LayoutHome.cshtml";
+}
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Contact No
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Req. House
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.catg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reqhouse)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
